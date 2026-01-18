@@ -307,7 +307,7 @@ const App = () => {
       title: 'Brazilian Wax',
       description: 'Complete intimate hair removal',
       price: '$45.00',
-      image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+      image: 'src/assets/brazilian-wax.jpg',
       duration: '45 Minutes'
     },
     {
@@ -315,7 +315,7 @@ const App = () => {
       title: 'Face Waxing',
       description: 'Eyebrows, upper lip, and chin',
       price: '$25.00',
-      image: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+      image: 'src/assets/face-wax.jpg',
       duration: '30 Minutes'
     },
     {
@@ -339,7 +339,7 @@ const App = () => {
       title: 'Back Waxing',
       description: 'Complete back hair removal',
       price: '$40.00',
-      image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+      image: '',
       duration: '30 Minutes'
     }
   ];
@@ -410,19 +410,31 @@ const App = () => {
             {/* Search Bar */}
             <div className="search-container">
               <div className="search-bar">
-                <input
+                {/* <input
                   type="text"
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="search-input"
-                />
+                /> */}
+                
+                <input
+  type="text"
+  placeholder="Search products..."
+  value={searchQuery}
+  onChange={(e) => {
+    setSearchQuery(e.target.value);
+    setSelectedCategory('all');
+  }}
+  className="search-input"
+/>
+
                 {searchQuery && (
                   <button className="clear-search-btn" onClick={clearSearch}>
                     ×
                   </button>
                 )}
-                <button className="search-btn">
+                <button type='button' className="search-btn">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="11" cy="11" r="8"/>
                     <path d="m21 21-4.35-4.35"/>
